@@ -3,7 +3,7 @@
  }
  #container{
   align-items:flex-start
-  border: none;
+  border:center;
     transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
     background-color: rgb(189, 175, 238);
     padding: 10px;
