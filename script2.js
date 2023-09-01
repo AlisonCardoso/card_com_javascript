@@ -1,40 +1,35 @@
-let cardList = document.querySelectorAll(".all-card");
-for( var i= 0; i < cardList.length; i++){
-    initAllCards(cardList[i]);
-}
+document.querySelector('button').addEventListener('click', adicionar);
 
-function initAllCards(card){
-    var addButton = document.createElement("button");
-    addButton.textContent = "adicionar";
-    addButton.type = "button";
+function adicionar(event){
+    event.preventDefault();
 
-   card.appendChild(addButton);
-   var firstCard = card.querySelector("textarea");
+    let form = document.querySelector('form');
+    let card = document.createElement('div');
+    let nome = document.createElement('h3');  
+    let titulo = document.createElement('p');
+   
 
-   addButton.addEventListener("click", function() {
-    var div = document.createElement("div");
-    var textArea = document.createElement("textarea");
-    var newElement = document.createElement("input");
-    textArea.name = firstCard.name;
-    textArea.type = firstCard.type;
-
-    const recado = document.querySelector("#recado");
-    recado.textContent = div.recado.value;
     
-    card.appendChild(recado);
+    titulo.textContent = form.titulo.value;
+    nome.textContent =  form.nome.value;
+  
+    card.appendChild(titulo);
+    card.appendChild(nome);
+    
 
-    var deleteButton = document.createElement("button");
+    let deleteButton = document.createElement("button");
     deleteButton.textContent = "Excluir";
     deleteButton.type = "button";
 
-  //  div.appendChild(newElement);
-    div.appendChild(deleteButton);
-    div.appendChild(textArea);
+    card.appendChild(deleteButton);
 
  deleteButton.addEventListener("click",function(){
-    div.remove();
+    card.remove();
  });
+ 
+    card.classList.add('card');
 
-    card.insertBefore(div, addButton);
-});
+    document.querySelector("#dados").appendChild(card);
+    form.reset();
 }
+
